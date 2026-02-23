@@ -57,7 +57,14 @@ $ ./docker/run.sh ${GPU_IDS}
 
 ## Dataset Preparation
 
-Please reach out to `siwase@cs.cmu.edu` to get access to the ZeroGrasp-11B and ReOcs datasets. I will share its Google drive link within a few days. Since [Webdataset](https://github.com/webdataset/webdataset) is used for training and evaluation, you have to re-upload the shard files to your own S3 bucket for training. **Do not forget to replace `{your_s3_path}` in `configs/default.yaml` with your S3 path.** You can also download a tiny version of the training dataset (the first 10 shards of the training dataset) in `train_tiny` directory for visualization purposes.
+Please run the following command to download teh datasets.
+
+```
+# Download and unzip the shard files.
+$ ./download.sh {your_data_path} {train_tiny|train|woven_easy|woven_normal|woven_hard}
+```
+
+Since [Webdataset](https://github.com/webdataset/webdataset) is used for training and evaluation, you have to re-upload the shard files to your own S3 bucket for training. **Do not forget to replace `{your_s3_path}` in `configs/default.yaml` with your S3 path.** You can also download a tiny version of the training dataset (the first 10 shards of the training dataset) in `train_tiny` directory for visualization purposes.
 
 ## Quickstart
 
@@ -70,9 +77,6 @@ $ ./train.sh {your_wandb_project_name} {your_wandb_run_name} ./configs/default.y
 # From a checkpoint
 $ ./train.sh {your_wandb_project_name} {your_wandb_run_name} ./configs/default.yaml {path_to_checkpoint_file}
 ```
-
-### Evaluation
-Coming soon!
 
 ### Demo
 Please download the pretrained checkpoint from [here](https://drive.google.com/file/d/1xUmFdgT_Ozu4zIPIsh_1SJMcegeQUWqQ/view?usp=sharing). Note that this checkpoint is only trained with the synthetic data. The depth maps from stereo matching algorithms (e.g., [FoundationStereo](https://github.com/NVlabs/FoundationStereo/), [DEFOM-Stereo](https://github.com/Insta360-Research-Team/DEFOM-Stereo), and etc.) are preferable to see the best performance.
