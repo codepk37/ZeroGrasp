@@ -1,3 +1,11 @@
+Done zerograsp run with pybullet single object \
+See /scratch/codepk37/ZeroGrasp/Run_sinobj.sh for running\
+Takes depth image in mm input\
+Hardcoded Background 0 for label image\
+Update configs/demo.yaml based on image "img_height: 1024
+img_width: 1280 \
+
+---
 # ZeroGrasp: Zero-Shot Shape Reconstruction Enabled Robotic Grasping
 
 ![ZeroGrasp](assets/teaser.png)
